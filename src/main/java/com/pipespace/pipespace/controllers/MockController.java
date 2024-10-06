@@ -61,7 +61,9 @@ public class MockController {
 			
 			
 			if(mock == null) {
-				throw new NoContentException("Não foi encontrada nenhum Section criada");
+				return new ResponseEntity<String>("Não foi encontrada nenhuma section criada para: " + section , HttpStatus.BAD_REQUEST);
+				
+				
 			}
 			
 			return new ResponseEntity<String>(mock.getResponse(), HttpStatus.valueOf(mock.getHttpResponse())); 				

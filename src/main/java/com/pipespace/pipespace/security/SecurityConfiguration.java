@@ -26,9 +26,9 @@ public class SecurityConfiguration {
 		return httpSecurity
 				.csrf(csrf -> csrf.disable() )
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-				.authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.POST, "/api/create-mock").hasAnyRole("USER")
+				.authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.POST, "/api/create-mock").hasRole("USER")
 						.requestMatchers(HttpMethod.POST, "/auth/register").hasAnyRole("ADMIN")
-						.requestMatchers("/api/mock-request/**").permitAll()
+						.requestMatchers("/api/mock-request/*").permitAll()
 //						.requestMatchers("/auth/register").permitAll()
 						.requestMatchers("/auth/login").permitAll()
 						.anyRequest().authenticated())

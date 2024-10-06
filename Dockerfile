@@ -1,11 +1,13 @@
 # Etapa de construção
 FROM  maven:3.8.5-openjdk-17 AS build
 
+RUN apt-get update
+
 # Copiar todo o código para o contêiner
 COPY . .
 
 # Construir a aplicação
-RUN mvn clean package -DskipTests
+RUN mvn clean install -DskipTests
 
 # Etapa de execução
 FROM openjdk:17.0.1-jdk-slim

@@ -31,6 +31,9 @@ public class SecurityConfiguration {
 						.requestMatchers("/api/mock-request/*").permitAll()
 //						.requestMatchers("/auth/register").permitAll()
 						.requestMatchers("/auth/login").permitAll()
+						.requestMatchers("/api/welcome").permitAll()
+						.requestMatchers(HttpMethod.POST, "/api/send-pdf").permitAll()
+						.requestMatchers(HttpMethod.POST, "/api/body-request").permitAll()
 						.anyRequest().authenticated())
 				.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
 				.build();

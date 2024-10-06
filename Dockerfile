@@ -7,7 +7,7 @@ RUN apt-get update
 COPY . .
 
 # Construir a aplicação
-RUN mvn clean install -DskipTests
+RUN mvn clean package -DskipTests
 
 # Etapa de execução
 FROM openjdk:17.0.1-jdk-slim

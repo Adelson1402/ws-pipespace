@@ -1,7 +1,6 @@
 # Etapa de construção
 FROM  maven:3.8.5-openjdk-17 AS build
 
-RUN apt-get update
 
 # Copiar todo o código para o contêiner
 COPY . .
